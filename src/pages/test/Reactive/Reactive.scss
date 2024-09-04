@@ -1,0 +1,72 @@
+@mixin calc-font-size($min-vw, $max-vw, $min-font-size, $max-font-size){
+  font-size: calc(#{$min-font-size}rem + ((100vw - #{$min-vw}rem) / (#{$max-vw} - #{$min-vw})) * (#{$max-font-size} - #{$min-font-size}));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+
+}
+
+.header, .footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  
+  
+  // @include calc-font-size(25.875, 90, 1.25, 3.75);
+  @include calc-font-size(25.875, 90, 1.25, 3.75);
+}
+
+.nav {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+
+.main {
+  flex: 1; /* 남은 공간을 차지하도록 설정 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
+}
+
+.aside {
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+/* 반응형 레이아웃 */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .header, .footer { 
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .aside {
+    width: 100%;
+  }
+}

@@ -1,0 +1,50 @@
+.layout {
+  display: flex; /* 두 그리드를 옆으로 배치 */
+  margin-left: 60px;
+}
+
+.grid-container {
+  position: relative;
+  top: 120px;
+  margin-right: 60px;
+  gap: 60px; /* 이미지 간 간격을 40px로 설정 */
+  display: grid;
+  grid-template-columns: 240px; /* 1개의 열로 설정 */
+  grid-auto-rows: min-content /* 높이는 자동으로 조정 */
+}
+
+.grid-item {
+  border-radius: 10px; /* 모서리 둥글게 */
+  background-color: lightgray; /* 임시 배경색 */
+  text-align: center; /* 중앙 정렬 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+}
+
+
+.new-grid-container {
+  margin-right: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 240px); /* 두 개의 열 */
+  grid-auto-rows: min-content; /* 높이는 자동으로 조정 */
+  gap: 60px; /* 이미지 간 간격 */
+}
+
+
+.second-grid-item, .third-grid-item {
+  border-radius: 10px; /* 모서리 둥글게 */
+  background-color: lightgray; /* 임시 배경색 */
+  text-align: center; /* 중앙 정렬 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+}
+
+/* 두 번째 줄과 네 번째 줄의 아이템을 전체 열을 차지하도록 설정 */
+.second-grid-item:nth-child(1),
+.second-grid-item:nth-child(4) {
+  grid-column: span 2; /* 두 번째 줄과 네 번째 줄의 아이템은 두 개의 열을 차지 */
+}
+
+/* 두 번째 줄과 네 번째 줄의 아이템을 전체 열을 차지하도록 설정 */
+.third-grid-item:nth-child(3),
+.third-grid-item:nth-child(6) {
+  grid-column: span 2; /* 두 번째 줄과 네 번째 줄의 아이템은 두 개의 열을 차지 */
+}

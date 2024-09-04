@@ -1,0 +1,8 @@
+html {
+  font-size: 62.5%;
+}
+
+html, body {
+  height: 100%;
+  overflow: auto; /* 스크롤을 허용 */
+}
